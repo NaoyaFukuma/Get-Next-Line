@@ -1,0 +1,7 @@
+a.out
+*test*
+*tester*
+*Tester*
+*.o
+*.a
+venv
