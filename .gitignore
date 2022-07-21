@@ -10,3 +10,4 @@ Makefile
 main.c
 sample*
 *.txt
+*gnlTest.dSYM*

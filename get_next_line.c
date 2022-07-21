@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:18:05 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 02:39:42 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 03:00:56 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,8 @@ char	*get_next_line(int fd)
 			return (NULL);
 		return (newline);
 	}
-printf("strage_p->finflag? [%d]\n", strage_p->fin_flag);
-printf("strage_p->text_len? [%zu]\n", strage_p->text_len);
 	if (strage_p->fin_flag == 1 && strage_p->text_len == 0)
 	{
-		printf("test");
 		if (strage_p->next == NULL)
 			static_strage_pointer = NULL;
 		else
@@ -96,8 +93,13 @@ printf("strage_p->text_len? [%zu]\n", strage_p->text_len);
 	while (1)
 	{
 		readsize = read(strage_p->fd, buf, BUFFER_SIZE);
-		if (readsize == -1)
+		if (readsize == -1 || (readsize == 0 && strage_p->text_len == 0))
+		{
+			free(strage_p->text);
+			free(strage_p);
+			free(buf);
 			return (NULL);
+		}
 		if ((size_t)readsize < BUFFER_SIZE)
 			strage_p->fin_flag = 1;
 		buf[readsize] = '\0';
@@ -113,9 +115,6 @@ printf("strage_p->text_len? [%zu]\n", strage_p->text_len);
 				return (NULL);
 			return (newline);
 		}
-		printf("\n\ntest\n\n");
-		fflush(stdout);
-		exit(0);
 		free(strage_p->text);
 		strage_p->text = catstr;
 		strage_p->text_len = strage_p->text_len + readsize;
