@@ -6,37 +6,30 @@
 #    By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 12:04:41 by nfukuma           #+#    #+#              #
-#    Updated: 2022/07/19 12:05:32 by nfukuma          ###   ########.fr        #
+#    Updated: 2022/07/21 16:34:05 by nfukuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=
+SRCS			= get_next_line.c get_next_line_utils.c main.c
 
 OBJS			= $(SRCS:.c=.o)
 
-CC				= gcc
-CPPFLAGS		+= -I./libft/
+CPPFLAGS		+= -Wall -Wextra -Werror
 RM				= rm -f
 
-NAME			=
+NAME			= a.out
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				make -C ./libft
-				cp libft/libft.a $(NAME)
-				ar rcs $@ $^
+				gcc $(OBJS)
 
 clean:
-				make clean -C ./libft
 				$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:			clean
-				make fclean -C ./libft
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)
-
-bonus:
 
 .PHONY:			all clean fclean re

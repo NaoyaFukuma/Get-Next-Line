@@ -5,3 +5,8 @@ a.out
 *.o
 *.a
 venv
+
+Makefile
+main.c
+sample*
+*.txt
