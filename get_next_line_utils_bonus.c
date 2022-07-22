@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:28:01 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 04:06:17 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 13:39:51 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,24 @@ char	*ft_strcat(char *s1, char *s2, size_t len)
 		catstr[j + i] = s2[j];
 	catstr[j + i] = '\0';
 	return (catstr);
+}
+
+t_list	*ft_set_pointer(t_list **static_p, t_list **strage_p, t_list **tmp_p, int fd)
+{
+	if (*static_p == NULL)
+		*static_p = ft_newnode(fd);
+	if (*static_p == NULL)
+		return (NULL);
+	*strage_p = *static_p;
+	*tmp_p = NULL;
+	while (1)
+	{
+		if ((*strage_p)->fd == fd)
+			break ;
+		if ((*strage_p)->next == NULL)
+			(*strage_p)->next = ft_newnode(fd);
+		*tmp_p = *strage_p;
+		(*strage_p) = (*strage_p)->next;
+	}
+	return (*strage_p);
 }

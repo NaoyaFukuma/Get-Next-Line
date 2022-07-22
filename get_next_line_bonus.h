@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:51:00 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 02:44:55 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 13:36:11 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_list	*ft_newnode(int fd);
 char	*ft_strchar(char *str, char c);
 char	*ft_split(char *str, size_t strlen, t_list *strage_p);
 char	*ft_strcat(char *s1, char *s2, size_t len);
+t_list	*ft_set_pointer(t_list **static_p, t_list **strage_p, t_list **tmp_p, int fd);
 
 #endif
