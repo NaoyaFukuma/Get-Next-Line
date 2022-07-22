@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:18:05 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 21:16:17 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 21:34:32 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_split(char *str, size_t strlen, t_list *strage_p)
 		tmp_str[j] = str[j + i];
 	tmp_str[j] = '\0';
 	free(strage_p->text);
-	strage_p->text = NULL;
 	strage_p->text = tmp_str;
 	strage_p->text_len = j;
 	return (newline);
