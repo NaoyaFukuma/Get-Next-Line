@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:51:00 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 04:02:07 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 02:44:55 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 
 # define FD_MAX	256
-# define BUFFER_SIZE 10000000
 typedef struct s_list
 {
 	int				fd;

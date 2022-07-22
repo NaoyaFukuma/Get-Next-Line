@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:18:05 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 04:05:17 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/22 10:46:12 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
+#include "get_next_line_bonus.h"
+// #include <stdio.h>
 // static_strage_pointer == static lst pointer
 //
 
@@ -26,9 +26,7 @@ char	*get_next_line(int fd)
 	ssize_t			readsize;
 	size_t			i;
 
-	// if ((fd < 0 && fd <= FD_MAX) || BUFFER_SIZE < 1 || read(fd, NULL, 0))
-	// 	return (NULL);
-	if (BUFFER_SIZE < 1 || read(fd, NULL, 0) == -1)
+	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) == -1)
 		return (NULL);
 
 	if (static_strage_pointer == NULL)
@@ -88,12 +86,16 @@ char	*get_next_line(int fd)
 
 	buf = malloc(BUFFER_SIZE + 1);
 	if (buf == NULL)
+	{
+		free(buf);
 		return (NULL);
+	}
 	while (1)
 	{
 		readsize = read(strage_p->fd, buf, BUFFER_SIZE);
 		if (readsize == -1 || (readsize == 0 && strage_p->text_len == 0))
 		{
+
 			free(strage_p->text);
 			free(strage_p);
 			free(buf);
