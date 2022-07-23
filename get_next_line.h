@@ -6,7 +6,7 @@
 /*   By: nfukuma <nfukuma@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:51:00 by nfukuma           #+#    #+#             */
-/*   Updated: 2022/07/22 21:29:28 by nfukuma          ###   ########.fr       */
+/*   Updated: 2022/07/23 17:08:26 by nfukuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_list				*ft_set_pointer(t_list **static_p, t_list **strage_p,
 						int fd);
 
 // in utils.c
-char				*ft_strcat(char **s1, char **s2, size_t len);
+char				*ft_strcat-get_next_line(char **s1, char **s2, size_t len);
 char				*ft_delete_one_strage(t_list **static_p, t_list **strage_p);
 char				*ft_push_end_line(t_list **strage_p);
 char				*ft_read_file_push_line(t_list **strage_p,
